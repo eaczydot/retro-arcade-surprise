@@ -12,7 +12,13 @@ const OperationalDirectives: React.FC = () => {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="arcade-screen scanline p-4 border-2 border-l-4 border-r-4 border-sixers-red flex flex-col items-center text-center">
+        <div className="arcade-screen scanline p-4 border-4 border-black relative flex flex-col items-center text-center">
+          {/* Red corners */}
+          <div className="absolute top-0 left-0 w-4 h-4 bg-sixers-red"></div>
+          <div className="absolute top-0 right-0 w-4 h-4 bg-sixers-red"></div>
+          <div className="absolute bottom-0 left-0 w-4 h-4 bg-sixers-red"></div>
+          <div className="absolute bottom-0 right-0 w-4 h-4 bg-sixers-red"></div>
+          
           <div className="bg-sixers-red rounded-full p-3 mb-4">
             <ShieldAlert className="w-6 h-6 text-white" />
           </div>
@@ -22,7 +28,13 @@ const OperationalDirectives: React.FC = () => {
           </p>
         </div>
 
-        <div className="arcade-screen scanline p-4 border-2 border-l-4 border-r-4 border-sixers-blue flex flex-col items-center text-center">
+        <div className="arcade-screen scanline p-4 border-4 border-black relative flex flex-col items-center text-center">
+          {/* Blue corners */}
+          <div className="absolute top-0 left-0 w-4 h-4 bg-sixers-blue"></div>
+          <div className="absolute top-0 right-0 w-4 h-4 bg-sixers-blue"></div>
+          <div className="absolute bottom-0 left-0 w-4 h-4 bg-sixers-blue"></div>
+          <div className="absolute bottom-0 right-0 w-4 h-4 bg-sixers-blue"></div>
+          
           <div className="bg-sixers-blue rounded-full p-3 mb-4">
             <Users className="w-6 h-6 text-white" />
           </div>
@@ -32,8 +44,14 @@ const OperationalDirectives: React.FC = () => {
           </p>
         </div>
 
-        <div className="arcade-screen scanline p-4 border-2 border-l-4 border-r-4 border-neon-yellow flex flex-col items-center text-center">
-          <div className="bg-neon-yellow rounded-full p-3 mb-4">
+        <div className="arcade-screen scanline p-4 border-4 border-black relative flex flex-col items-center text-center">
+          {/* Yellow corners */}
+          <div className="absolute top-0 left-0 w-4 h-4 bg-[#FFA031]"></div>
+          <div className="absolute top-0 right-0 w-4 h-4 bg-[#FFA031]"></div>
+          <div className="absolute bottom-0 left-0 w-4 h-4 bg-[#FFA031]"></div>
+          <div className="absolute bottom-0 right-0 w-4 h-4 bg-[#FFA031]"></div>
+          
+          <div className="bg-[#FFA031] rounded-full p-3 mb-4">
             <MapPin className="w-6 h-6 text-arcade-black" />
           </div>
           <h3 className="font-pixel text-sm text-neon-yellow mb-3">LOCATION SHARING</h3>

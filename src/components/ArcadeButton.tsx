@@ -37,7 +37,18 @@ const ArcadeButton = React.forwardRef<HTMLButtonElement, ArcadeButtonProps>(
         )}
         {...props}
       >
-        {children}
+        <div className="relative z-10">
+          {children}
+        </div>
+        
+        {/* Pixelated black border */}
+        <div className="absolute inset-0 border-4 border-black pointer-events-none"></div>
+        
+        {/* Corner pixels for 3D effect */}
+        <div className="absolute top-0 left-0 w-2 h-2 bg-white opacity-30 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-2 h-2 bg-white opacity-30 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-2 h-2 bg-black opacity-30 pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-2 h-2 bg-black opacity-30 pointer-events-none"></div>
       </button>
     );
   }

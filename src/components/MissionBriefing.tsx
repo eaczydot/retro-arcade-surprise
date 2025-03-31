@@ -1,10 +1,17 @@
+
 import React from 'react';
 import { Calendar, MapPin, Clock, Shirt } from 'lucide-react';
 import PixelDivider from './PixelDivider';
 
 const MissionBriefing: React.FC = () => {
   return (
-    <div className="arcade-screen scanline p-6 md:p-8 text-white max-w-3xl mx-auto">
+    <div className="arcade-screen scanline p-6 md:p-8 text-white max-w-3xl mx-auto border-4 border-black">
+      {/* Colorful border corners */}
+      <div className="absolute top-0 left-0 w-6 h-6 bg-sixers-red"></div>
+      <div className="absolute top-0 right-0 w-6 h-6 bg-[#FFA031]"></div>
+      <div className="absolute bottom-0 left-0 w-6 h-6 bg-[#0AA757]"></div>
+      <div className="absolute bottom-0 right-0 w-6 h-6 bg-sixers-blue"></div>
+      
       <h2 className="font-press-start text-center text-xl md:text-2xl mb-6 text-neon-green neon-text">
         <span className="inline-block animate-blink mr-2">»</span>
         MISSION BRIEFING

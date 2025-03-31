@@ -1,5 +1,6 @@
+
 import React, { useEffect, useState } from 'react';
-import { Gamepad2, Star } from 'lucide-react';
+import { Gamepad2, Star, ExternalLink } from 'lucide-react';
 import ArcadeButton from '@/components/ArcadeButton';
 import PixelDivider from '@/components/PixelDivider';
 import MissionBriefing from '@/components/MissionBriefing';
@@ -7,6 +8,8 @@ import OperationalDirectives from '@/components/OperationalDirectives';
 import RsvpForm from '@/components/RsvpForm';
 import MarqueeText from '@/components/MarqueeText';
 import PixelatedCharacter from '@/components/PixelatedCharacter';
+import GameCard from '@/components/GameCard';
+import PixelLogo from '@/components/PixelLogo';
 
 const Index: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +34,7 @@ const Index: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-arcade-black text-white p-4">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#001F5B] text-white p-4">
         <h1 className="font-press-start text-2xl text-neon-green mb-8 neon-text">Loading Game...</h1>
         <div className="w-full max-w-md h-8 bg-arcade-darker border-2 border-neon-green mb-4">
           <div 
@@ -45,9 +48,12 @@ const Index: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-arcade-black text-white">
+    <div className="min-h-screen bg-[#001F5B] text-white">
+      {/* Header Border */}
+      <PixelDivider variant="header" />
+
       {/* Marquee Banner */}
-      <div className="bg-sixers-red py-2">
+      <div className="py-2">
         <MarqueeText 
           text="TOP SECRET · OPERATION 8-BIT SURPRISE · APRIL 1ST · MAINTAIN RADIO SILENCE" 
           className="font-pixel text-white"
@@ -56,9 +62,9 @@ const Index: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <header className="relative py-16 overflow-hidden">
+      <header className="relative py-10 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-arcade-black via-arcade-darker to-arcade-black opacity-70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#001F5B] via-arcade-darker to-[#001F5B] opacity-70"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sixers-blue/20 via-transparent to-transparent"></div>
           
           {/* Floating pixels and characters */}
@@ -86,21 +92,35 @@ const Index: React.FC = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="flex justify-center mb-6">
-              <Gamepad2 className="text-neon-green w-16 h-16 animate-pulse" />
+            <div className="flex justify-center mb-4">
+              {/* 76ers Logo */}
+              <div className="mb-4 relative w-20 h-20">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-sixers-red font-bold text-5xl" style={{ fontFamily: 'Arial, sans-serif' }}>7</span>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-white font-bold text-5xl ml-4 mt-1" style={{ fontFamily: 'Arial, sans-serif' }}>6</span>
+                </div>
+              </div>
             </div>
             
-            <h1 className="font-press-start text-3xl md:text-4xl lg:text-5xl mb-6 tracking-tight">
-              <span className="text-sixers-red neon-text">OPERATION</span>
-              <br />
-              <span className="text-neon-cyan neon-text">8-BIT</span>
-              <span className="text-neon-pink neon-text ml-2 md:ml-4">SURPRISE</span>
-            </h1>
+            {/* Pixelated Title from game */}
+            <PixelLogo size="lg" />
             
-            <div className="flex justify-center my-4">
-              <div className="font-pixel text-neon-yellow text-lg animate-blink">
-                PHENOM GALLERY
-              </div>
+            {/* Subtitle */}
+            <div className="bg-black inline-block px-4 py-2 mb-6">
+              <h2 className="font-press-start text-xl tracking-wide">
+                <span className="text-sixers-red">A</span>
+                <span className="text-[#FFA031]">F</span>
+                <span className="text-[#0AA757]">T</span>
+                <span className="text-sixers-blue">E</span>
+                <span className="text-sixers-red">R</span>
+                <span className="text-white mx-1">·</span>
+                <span className="text-[#FFA031]">D</span>
+                <span className="text-[#0AA757]">A</span>
+                <span className="text-sixers-blue">R</span>
+                <span className="text-sixers-red">K</span>
+              </h2>
             </div>
             
             <p className="font-vt323 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
@@ -131,6 +151,41 @@ const Index: React.FC = () => {
 
       <PixelDivider className="bg-neon-pink" />
 
+      {/* Game Cards Section */}
+      <section className="py-12 bg-[#001F5B]">
+        <div className="container mx-auto px-4">
+          <h2 className="font-press-start text-center text-xl md:text-2xl mb-10 text-white">
+            <span className="inline-block animate-blink mr-2">»</span>
+            THE GAMES
+            <span className="inline-block animate-blink ml-2">«</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <GameCard 
+              title="Spectrum Sprint" 
+              imageSrc="/lovable-uploads/49c747ce-9379-4282-a6f6-8484e3b4ea19.png"
+            />
+            <GameCard 
+              title="Buckets on Broad" 
+              imageSrc="/lovable-uploads/2184bd8a-2017-4044-958d-3e041db37f33.png"
+            />
+            <GameCard 
+              title="Spectrum Showdown" 
+              imageSrc="/lovable-uploads/ec61cbef-24fa-4994-8df2-108f3a3be449.png"
+            />
+          </div>
+          
+          <div className="text-center mt-8">
+            <a href="https://sixersgame.com" target="_blank" rel="noopener noreferrer" className="font-vt323 text-xl inline-flex items-center text-neon-cyan hover:text-neon-green transition-colors">
+              Visit SIXERSGAME.COM
+              <ExternalLink className="ml-2 w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <PixelDivider className="bg-neon-pink" />
+
       {/* Mission Briefing Section */}
       <section id="mission" className="py-12 md:py-16">
         <div className="container mx-auto px-4">
@@ -141,7 +196,7 @@ const Index: React.FC = () => {
       <PixelDivider className="bg-neon-yellow" />
 
       {/* Operational Directives Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-arcade-black to-arcade-darker">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-[#001F5B] to-arcade-darker">
         <div className="container mx-auto px-4">
           <OperationalDirectives />
         </div>
@@ -170,8 +225,18 @@ const Index: React.FC = () => {
           <p className="font-pixel text-xs mt-4 text-gray-400">
             PRESS START TO CONTINUE
           </p>
+          
+          <div className="mt-6">
+            <p className="font-vt323 text-sm text-gray-500">
+              Presented by
+              <span className="text-white ml-2">CRYPTO.COM</span>
+            </p>
+          </div>
         </div>
       </footer>
+      
+      {/* Footer Border */}
+      <PixelDivider variant="footer" />
     </div>
   );
 };

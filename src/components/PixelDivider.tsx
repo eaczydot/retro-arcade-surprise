@@ -4,8 +4,8 @@ import { cn } from '@/lib/utils';
 
 interface PixelDividerProps {
   className?: string;
-  variant?: 'default' | 'narrow';
-  color?: string; // Add color prop
+  variant?: 'default' | 'narrow' | 'header' | 'footer';
+  color?: string;
 }
 
 const PixelDivider = ({ 
@@ -19,6 +19,29 @@ const PixelDivider = ({
   const orangeColor = color?.includes('yellow') ? color : 'bg-[#FFA031]'; // Orange
   const greenColor = color?.includes('green') ? color : 'bg-[#0AA757]'; // Green
   const deepBlueColor = color?.includes('cyan') ? color : 'bg-[#001F5B]'; // Deep Blue
+  
+  // Header/Footer has pattern shown in the game screenshots
+  if (variant === 'header' || variant === 'footer') {
+    return (
+      <div className={cn('w-full', className)}>
+        <div className="flex flex-col">
+          <div className="h-1 bg-black w-full"></div>
+          <div className="h-6 bg-sixers-red w-full"></div>
+          <div className="h-6 bg-[#FFA031] w-full"></div>
+          <div className="h-6 bg-[#0AA757] w-full"></div>
+          <div className="h-6 bg-sixers-blue w-full"></div>
+          <div className="h-1 bg-black w-full"></div>
+          <div className="h-8 bg-black w-full"></div>
+          <div className="h-1 bg-black w-full"></div>
+          <div className="h-6 bg-sixers-blue w-full"></div>
+          <div className="h-6 bg-[#0AA757] w-full"></div>
+          <div className="h-6 bg-[#FFA031] w-full"></div>
+          <div className="h-6 bg-sixers-red w-full"></div>
+          <div className="h-1 bg-black w-full"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={cn('w-full my-6', className)}>
