@@ -63,11 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Sixers colors
+				// Sixers colors from style guide
 				sixers: {
-					red: '#ED174C',
-					blue: '#006BB6',
-					navy: '#002B5C',
+					red: '#EF1C2D',
+					blue: '#1C75BC',
+					navy: '#001F5B',
+					orange: '#FFA031',
+					green: '#0AA757',
 				},
 				// Neon colors
 				neon: {
@@ -144,6 +146,10 @@ export default {
 				'press-start': ['"Press Start 2P"', 'cursive'],
 				'vt323': ['"VT323"', 'monospace'],
 				'pixel': ['"Silkscreen"', 'cursive'],
+			},
+			backgroundImage: {
+				'sixers-pattern': "url('/public/lovable-uploads/1cb107c0-4392-45d7-988b-fc2dd1174396.png')",
+				'sixers-horizontal': "url('/public/lovable-uploads/b063c7f6-c145-4e6f-8a99-e3c253e76721.png')",
 			},
 		}
 	},

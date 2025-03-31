@@ -3,33 +3,34 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface ArcadeButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'red' | 'blue' | 'green' | 'yellow';
+  variant?: 'green' | 'red' | 'blue' | 'orange';
   size?: 'sm' | 'md' | 'lg';
+  pixelBorder?: boolean;
 }
 
 const ArcadeButton = React.forwardRef<HTMLButtonElement, ArcadeButtonProps>(
-  ({ variant = 'default', size = 'md', className, children, ...props }, ref) => {
+  ({ variant = 'green', size = 'md', pixelBorder = true, className, children, ...props }, ref) => {
     const variantStyles = {
-      default: 'bg-white text-arcade-black border-arcade-black hover:bg-gray-100',
-      red: 'bg-sixers-red text-white border-white hover:bg-red-600',
-      blue: 'bg-sixers-blue text-white border-white hover:bg-blue-700',
-      green: 'bg-neon-green text-arcade-black border-arcade-black hover:text-white',
-      yellow: 'bg-neon-yellow text-arcade-black border-arcade-black hover:text-white',
+      green: 'bg-[#0AA757] text-white border-[#065a2f] hover:brightness-110',
+      red: 'bg-sixers-red text-white border-[#a8102f] hover:brightness-110',
+      blue: 'bg-sixers-blue text-white border-[#00487a] hover:brightness-110',
+      orange: 'bg-[#FFA031] text-white border-[#b87023] hover:brightness-110',
     };
 
     const sizeStyles = {
-      sm: 'text-xs px-3 py-1',
-      md: 'text-sm px-4 py-2',
-      lg: 'text-base px-6 py-3',
+      sm: 'text-sm py-1 px-4 min-w-[120px]',
+      md: 'text-base py-2 px-6 min-w-[160px]',
+      lg: 'text-lg py-3 px-8 min-w-[200px]',
     };
 
     return (
       <button
         ref={ref}
         className={cn(
-          'font-pixel uppercase tracking-wider transition-colors',
-          'border-2 border-b-4 active:border-b-2 active:translate-y-[2px]',
-          'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-arcade-dark',
+          'font-press-start uppercase tracking-wider transition-all relative',
+          'border-b-4 active:border-b-2 active:translate-y-[2px]',
+          'focus:outline-none',
+          pixelBorder && 'pixel-btn',
           variantStyles[variant],
           sizeStyles[size],
           className

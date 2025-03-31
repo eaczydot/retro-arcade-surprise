@@ -50,39 +50,7 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* ... keep existing code */
   }
 }
 
@@ -92,7 +60,7 @@
   }
 
   body {
-    @apply bg-arcade-dark text-white;
+    @apply bg-[#001F5B] text-white;
     image-rendering: pixelated;
   }
 
@@ -102,6 +70,29 @@
     box-shadow: 
       0 0 0 2px white,
       0 0 0 4px #000;
+  }
+
+  /* Pixelated button border */
+  .pixel-btn {
+    position: relative;
+  }
+
+  .pixel-btn::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: transparent;
+    border: 3px solid #000;
+    pointer-events: none;
+    clip-path: polygon(
+      0% 0%, 3px 0%, 3px 3px, calc(100% - 3px) 3px, 
+      calc(100% - 3px) 0%, 100% 0%, 100% 100%, 
+      calc(100% - 3px) 100%, calc(100% - 3px) calc(100% - 3px), 
+      3px calc(100% - 3px), 3px 100%, 0% 100%
+    );
   }
 
   /* Arcade screen style */
@@ -129,6 +120,30 @@
     );
     pointer-events: none;
     z-index: 1;
+  }
+  
+  /* Sixers-specific styles */
+  .sixers-pattern {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="10" height="10" fill="%23001F5B" fill-opacity="0.5"/><rect x="10" y="10" width="10" height="10" fill="%23001F5B" fill-opacity="0.5"/></svg>');
+    background-size: 20px 20px;
+  }
+
+  /* Colorful sixers border */
+  .sixers-border {
+    position: relative;
+    border: 8px solid transparent;
+  }
+
+  .sixers-border::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: linear-gradient(to right, #ED174C, #FFA031, #0AA757, #006BB6);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
   
   /* Scanline effect */
@@ -197,5 +212,17 @@
   .neon-button:hover::before {
     opacity: 0.6;
     transform: scale(1);
+  }
+
+  /* Retro game logo */
+  .retro-logo {
+    filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.4));
+  }
+
+  /* Dotted background pattern */
+  .dotted-bg {
+    background-image: radial-gradient(#FFF 1px, transparent 1px);
+    background-size: 16px 16px;
+    background-position: center;
   }
 }
