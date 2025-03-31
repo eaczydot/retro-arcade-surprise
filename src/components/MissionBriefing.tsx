@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Calendar, MapPin, Clock, Shirt } from 'lucide-react';
 import PixelDivider from './PixelDivider';
@@ -55,7 +54,7 @@ const MissionBriefing: React.FC = () => {
           </div>
         </div>
 
-        <PixelDivider color="bg-sixers-blue" />
+        <PixelDivider className="bg-sixers-blue" />
 
         <div className="bg-arcade-black p-4 border-2 border-neon-pink">
           <h3 className="font-pixel text-sm text-neon-pink mb-2">OBJECTIVE:</h3>

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Gamepad2, Star } from 'lucide-react';
 import ArcadeButton from '@/components/ArcadeButton';
@@ -130,7 +129,7 @@ const Index: React.FC = () => {
         </div>
       </header>
 
-      <PixelDivider color="bg-neon-pink" />
+      <PixelDivider className="bg-neon-pink" />
 
       {/* Mission Briefing Section */}
       <section id="mission" className="py-12 md:py-16">
@@ -139,7 +138,7 @@ const Index: React.FC = () => {
         </div>
       </section>
 
-      <PixelDivider color="bg-neon-yellow" />
+      <PixelDivider className="bg-neon-yellow" />
 
       {/* Operational Directives Section */}
       <section className="py-12 md:py-16 bg-gradient-to-b from-arcade-black to-arcade-darker">
@@ -148,7 +147,7 @@ const Index: React.FC = () => {
         </div>
       </section>
 
-      <PixelDivider color="bg-neon-cyan" />
+      <PixelDivider className="bg-neon-cyan" />
 
       {/* RSVP Section */}
       <section id="rsvp" className="py-12 md:py-16">
