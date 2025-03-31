@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Sixers colors
+				sixers: {
+					red: '#ED174C',
+					blue: '#006BB6',
+					navy: '#002B5C',
+				},
+				// Neon colors
+				neon: {
+					green: '#39FF14',
+					pink: '#FF3366',
+					cyan: '#00FFFF',
+					yellow: '#FFFF00',
+				},
+				// Arcade dark backgrounds
+				arcade: {
+					dark: '#121212',
+					darker: '#0A0A0A',
+					black: '#000000',
 				}
 			},
 			borderRadius: {
@@ -84,12 +104,47 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'blink': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' }
+				},
+				'pixel-move': {
+					'0%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+					'100%': { transform: 'translateY(0)' }
+				},
+				'glitch': {
+					'0%': { transform: 'translate(0)' },
+					'20%': { transform: 'translate(-2px, 2px)' },
+					'40%': { transform: 'translate(-2px, -2px)' },
+					'60%': { transform: 'translate(2px, 2px)' },
+					'80%': { transform: 'translate(2px, -2px)' },
+					'100%': { transform: 'translate(0)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'marquee': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-100%)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'blink': 'blink 1s step-start infinite',
+				'pixel-move': 'pixel-move 2s ease-in-out infinite',
+				'glitch': 'glitch 0.8s ease-in-out infinite alternate',
+				'float': 'float 6s ease-in-out infinite',
+				'marquee': 'marquee 25s linear infinite'
+			},
+			fontFamily: {
+				'press-start': ['"Press Start 2P"', 'cursive'],
+				'vt323': ['"VT323"', 'monospace'],
+				'pixel': ['"Silkscreen"', 'cursive'],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
